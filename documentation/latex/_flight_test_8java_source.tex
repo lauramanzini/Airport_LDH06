@@ -1,0 +1,62 @@
+\hypertarget{_flight_test_8java_source}{}\doxysection{Flight\+Test.\+java}
+\label{_flight_test_8java_source}\index{src/test/java/es/ull/flights/FlightTest.java@{src/test/java/es/ull/flights/FlightTest.java}}
+\mbox{\hyperlink{_flight_test_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00001}00001 \textcolor{keyword}{package }es.ull.flights;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00003}00003 \textcolor{keyword}{import} es.ull.passengers.Passenger;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00004}00004 \textcolor{keyword}{import} org.junit.jupiter.api.Test;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00005}00005 \textcolor{keyword}{import} org.junit.jupiter.api.BeforeEach;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00006}00006 \textcolor{keyword}{import} org.junit.jupiter.api.DisplayName;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00008}00008 \textcolor{keyword}{import} \textcolor{keyword}{static} org.junit.jupiter.api.Assertions.*;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00009}00009 \textcolor{keyword}{import} \textcolor{keyword}{static} org.junit.jupiter.api.Assertions.assertEquals;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00014}00014 @DisplayName(\textcolor{stringliteral}{"{}Flight Test"{}})}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00015}00015 class FlightTest \{}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00023}00023     \textcolor{keyword}{private} Flight flight;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00024}00024     \textcolor{keyword}{private} Flight flight2;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00025}00025     \textcolor{keyword}{private} Passenger passenger;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00026}00026     \textcolor{keyword}{private} Passenger passenger2;}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00028}00028     @BeforeEach}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00029}00029     \textcolor{keywordtype}{void} setUp()\{}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00030}00030         flight = \textcolor{keyword}{new} Flight(\textcolor{stringliteral}{"{}FR4849"{}}, 20);}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00031}00031         flight2 = \textcolor{keyword}{new} Flight (\textcolor{stringliteral}{"{}BC4624"{}}, 1);}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00032}00032         passenger = \textcolor{keyword}{new} Passenger (\textcolor{stringliteral}{"{}id1"{}}, \textcolor{stringliteral}{"{}Francesco"{}}, \textcolor{stringliteral}{"{}IT"{}});}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00033}00033         passenger2 = \textcolor{keyword}{new} Passenger (\textcolor{stringliteral}{"{}id2"{}}, \textcolor{stringliteral}{"{}Anna"{}}, \textcolor{stringliteral}{"{}ES"{}});}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00034}00034     \}}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00039}00039     @Test}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00040}00040     @DisplayName(\textcolor{stringliteral}{"{}Add Passenger Test"{}})}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00041}00041     void testAddPassenger() \{}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00042}00042         assertAll(\textcolor{stringliteral}{"{}Verify that the passenger is correctly assigned to a flight"{}},}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00043}00043                 () -\/> assertTrue(flight.addPassenger(passenger), \textcolor{stringliteral}{"{}Passenger is assigned to the flight"{}}),}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00044}00044                 () -\/> assertEquals(1, flight.getNumberOfPassengers(), \textcolor{stringliteral}{"{}Number of passengers"{}}),}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00045}00045                 () -\/> assertTrue(flight2.addPassenger(passenger), \textcolor{stringliteral}{"{}Adding a passenger"{}}),}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00046}00046                 () -\/> assertThrows(RuntimeException.class, ()-\/> flight2.addPassenger(passenger2), \textcolor{stringliteral}{"{}Not possible to add more passengers"{}})}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00047}00047         );}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00053}00053     @Test}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00054}00054     @DisplayName(\textcolor{stringliteral}{"{}Get Flight Details"{}})}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00055}00055     void testGetFlightDetails() \{}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00056}00056         flight.addPassenger(passenger);}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00057}00057         assertAll(\textcolor{stringliteral}{"{}Verify the flight's details"{}},}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00058}00058                 () -\/> assertEquals(\textcolor{stringliteral}{"{}FR4849"{}}, flight.getFlightNumber(), \textcolor{stringliteral}{"{}Flight's number"{}}),}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00059}00059                 () -\/> assertEquals(1, flight.getNumberOfPassengers(), \textcolor{stringliteral}{"{}Number of passengers"{}})}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00060}00060         );}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00061}00061     \}}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00066}00066     @Test}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00067}00067     @DisplayName(\textcolor{stringliteral}{"{}Remove Passenger Test"{}})}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00068}00068     void testRemovePassenger() \{}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00069}00069         assertAll(\textcolor{stringliteral}{"{}Verify if it is possible to remove passenger"{}},}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00070}00070                 () -\/> assertTrue(flight2.addPassenger(passenger), \textcolor{stringliteral}{"{}Added passenger to flight"{}}),}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00071}00071                 () -\/> assertTrue(flight2.removePassenger(passenger), \textcolor{stringliteral}{"{}Removed passenger from the flight"{}}),}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00072}00072                 () -\/> assertFalse(flight2.removePassenger(passenger2), \textcolor{stringliteral}{"{}The passenger is not on the flight and cannot be removed"{}})}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00073}00073         );}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{_flight_test_8java_source_l00075}00075 \}}
+
+\end{DoxyCode}

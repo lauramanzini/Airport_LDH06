@@ -1,0 +1,91 @@
+\hypertarget{_passenger_8java_source}{}\doxysection{Passenger.\+java}
+\label{_passenger_8java_source}\index{src/main/java/es/ull/passengers/Passenger.java@{src/main/java/es/ull/passengers/Passenger.java}}
+\mbox{\hyperlink{_passenger_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00002}00002 \textcolor{comment}{ * ========================================================================}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00003}00003 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00004}00004 \textcolor{comment}{ * Licensed to the Apache Software Foundation (ASF) under one or more}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00005}00005 \textcolor{comment}{ * contributor license agreements.  See the NOTICE file distributed with}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00006}00006 \textcolor{comment}{ * this work for additional information regarding copyright ownership.}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00007}00007 \textcolor{comment}{ * The ASF licenses this file to You under the Apache License, Version 2.0}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00008}00008 \textcolor{comment}{ * (the "{}License"{}); you may not use this file except in compliance with}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00009}00009 \textcolor{comment}{ * the License.  You may obtain a copy of the License at}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00010}00010 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00011}00011 \textcolor{comment}{ *   http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00012}00012 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00013}00013 \textcolor{comment}{ * Unless required by applicable law or agreed to in writing, software}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00014}00014 \textcolor{comment}{ * distributed under the License is distributed on an "{}AS IS"{} BASIS,}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00015}00015 \textcolor{comment}{ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00016}00016 \textcolor{comment}{ * See the License for the specific language governing permissions and}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00017}00017 \textcolor{comment}{ * limitations under the License.}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00018}00018 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00019}00019 \textcolor{comment}{ * ========================================================================}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00020}00020 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00021}\mbox{\hyperlink{namespacees_1_1ull_1_1passengers}{00021}} \textcolor{keyword}{package }es.ull.passengers;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00023}00023 \textcolor{keyword}{import} java.util.Arrays;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00024}00024 \textcolor{keyword}{import} java.util.Locale;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00025}00025 \textcolor{keyword}{import} java.util.regex.Matcher;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00026}00026 \textcolor{keyword}{import} java.util.regex.Pattern;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00028}00028 \textcolor{keyword}{import} es.ull.flights.Flight;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00034}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger}{00034}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger}{Passenger}} \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00044}00044     \textcolor{keyword}{private} String identifier;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00045}00045     \textcolor{keyword}{private} String name;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00046}00046     \textcolor{keyword}{private} String countryCode;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00047}00047     \textcolor{keyword}{private} \mbox{\hyperlink{classes_1_1ull_1_1flights_1_1_flight}{Flight}} flight;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00055}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a740acbb5a5a2fb7b9f94d2bc06650fb3}{00055}}     \textcolor{keyword}{public} \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a740acbb5a5a2fb7b9f94d2bc06650fb3}{Passenger}}(String identifier, String name, String countryCode) \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00056}00056         \textcolor{keywordflow}{if} (!Arrays.asList(Locale.getISOCountries()).contains(countryCode)) \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00057}00057             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException(\textcolor{stringliteral}{"{}Invalid country code"{}});}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00058}00058         \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00060}00060         this.identifier = identifier;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00061}00061         this.name = name;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00062}00062         this.countryCode = countryCode;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00063}00063     \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00069}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a2477c2f0b9a49a9d9b47396ef0a8d231}{00069}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a2477c2f0b9a49a9d9b47396ef0a8d231}{getIdentifier}}() \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00070}00070         \textcolor{keywordflow}{return} identifier;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00077}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a30bde0502748dd7880d0cec945be22c7}{00077}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a30bde0502748dd7880d0cec945be22c7}{getName}}() \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00078}00078         \textcolor{keywordflow}{return} name;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00079}00079     \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00085}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a0b10b5172260428e96e7238421568520}{00085}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a0b10b5172260428e96e7238421568520}{getCountryCode}}() \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00086}00086         \textcolor{keywordflow}{return} countryCode;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00093}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a85cf4c7fae5768f0f9b895709e2551af}{00093}}     \textcolor{keyword}{public} \mbox{\hyperlink{classes_1_1ull_1_1flights_1_1_flight}{Flight}} \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a85cf4c7fae5768f0f9b895709e2551af}{getFlight}}() \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00094}00094         \textcolor{keywordflow}{return} flight;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00095}00095     \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00101}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_ab502f5a4d9dde76595f7d1781683b08e}{00101}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_ab502f5a4d9dde76595f7d1781683b08e}{joinFlight}}(\mbox{\hyperlink{classes_1_1ull_1_1flights_1_1_flight}{Flight}} flight) \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00102}00102         \mbox{\hyperlink{classes_1_1ull_1_1flights_1_1_flight}{Flight}} previousFlight = this.flight;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00103}00103         \textcolor{keywordflow}{if} (\textcolor{keyword}{null} != previousFlight) \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00104}00104             \textcolor{keywordflow}{if} (!previousFlight.\mbox{\hyperlink{classes_1_1ull_1_1flights_1_1_flight_aae162ee591aaab6ea905e8eb116b0b5a}{removePassenger}}(\textcolor{keyword}{this})) \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00105}00105                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException(\textcolor{stringliteral}{"{}Cannot remove passenger"{}});}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00106}00106             \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00107}00107         \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00108}00108         \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a304d20a6a14fc06b986745b345720cde}{setFlight}}(flight);}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00109}00109         \textcolor{keywordflow}{if} (\textcolor{keyword}{null} != flight) \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00110}00110             \textcolor{keywordflow}{if} (!flight.\mbox{\hyperlink{classes_1_1ull_1_1flights_1_1_flight_af91e68d0b5783e3593f4dac614e8f6df}{addPassenger}}(\textcolor{keyword}{this})) \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00111}00111                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} RuntimeException(\textcolor{stringliteral}{"{}Cannot add passenger"{}});}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00112}00112             \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00113}00113         \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00114}00114     \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00120}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a304d20a6a14fc06b986745b345720cde}{00120}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a304d20a6a14fc06b986745b345720cde}{setFlight}}(\mbox{\hyperlink{classes_1_1ull_1_1flights_1_1_flight}{Flight}} flight) \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00121}00121         this.flight = flight;}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00128}00128     @Override}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00129}\mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_aa33b3b677588824d33c76a2950b180f1}{00129}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_aa33b3b677588824d33c76a2950b180f1}{toString}}() \{}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00130}00130         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Passenger "{}} + \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a30bde0502748dd7880d0cec945be22c7}{getName}}() + \textcolor{stringliteral}{"{} with identifier: "{}} + \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a2477c2f0b9a49a9d9b47396ef0a8d231}{getIdentifier}}() + \textcolor{stringliteral}{"{} from "{}} + \mbox{\hyperlink{classes_1_1ull_1_1passengers_1_1_passenger_a0b10b5172260428e96e7238421568520}{getCountryCode}}();}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00131}00131     \}}
+\DoxyCodeLine{\Hypertarget{_passenger_8java_source_l00132}00132 \}}
+
+\end{DoxyCode}
