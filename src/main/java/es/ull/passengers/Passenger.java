@@ -22,8 +22,6 @@ package es.ull.passengers;
 
 import java.util.Arrays;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import es.ull.flights.Flight;
 
@@ -33,11 +31,6 @@ import es.ull.flights.Flight;
 
 public class Passenger {
     /**
-     * The class is described by the following parameters:
-     * @param identifier is the identification number of the passenger
-     * @param name is the name of the passenger
-     * @param countryCode is the country's code of the passenger's origin
-     * @param flight is the flight's number that the passenger attends
      * For more information regarding the details of the flight consult /class Flight
      */
 
