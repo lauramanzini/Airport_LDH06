@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.38.0" timestamp="2021-12-27T11:10:25.590">
+<file name="C:\Users\laura\DesarolloHerramientas\Airport_LDH06\Airport_LDH06\src\main\java\es\ull\passengers\Passenger.java">
+<violation beginline="97" endline="99" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Design" package="es.ull.passengers" class="Passenger" method="joinFlight" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_design.html#collapsibleifstatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="103" endline="105" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Design" package="es.ull.passengers" class="Passenger" method="joinFlight" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_design.html#collapsibleifstatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+</pmd>
